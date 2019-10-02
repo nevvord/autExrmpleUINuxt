@@ -1,14 +1,17 @@
 <template>
   <div>
-    <NavBar />
+    <Content />
   </div>
 </template>
 
 <script>
-import NavBar from '~/components/NavBar/Navbar'
+import Content from '~/components/Content/Main'
 export default {
   components: {
-    NavBar
+    Content
+  },
+  head: {
+    title: 'Auth with Nevvord'
   }
 }
 </script>

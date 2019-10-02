@@ -9,9 +9,33 @@
 
             <b-collapse id="nav-colapse" is-nav>
                 <b-navbar-nav>
-                    <b-nav-item to="#">{{ $t('navBar.firstLink') }}</b-nav-item>
+                    <b-nav-item to="#">{{ $t('navBar.left.firstLink') }}</b-nav-item>
+                </b-navbar-nav>
+
+                
+                <!--Right navBar-->
+                <b-navbar-nav class="ml-auto">
+                    <!--Search-->
+                    <Search />
+                    <!--User-->
+                    <User />
+                    <!--Lang-->
+                    <Language />
                 </b-navbar-nav>
             </b-collapse>
         </b-navbar>
     </div>
 </template>
+
+<script>
+import Language from './Language/Language'
+import User from './User/User'
+import Search from './Search/Search'
+export default {
+    components: {
+        Language,
+        User,
+        Search
+    }
+}
+</script>

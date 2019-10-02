@@ -1,6 +1,26 @@
 {
     "logoName": "Nevvord",
     "navBar": {
-        "firstLink": "Ссылка"
+        "left": {
+            "firstLink": "Ссылка"
+        },
+        "right": {
+            "search": {
+                "input": "Поиск",
+                "button": "Поиск"
+            },
+            "lang": {
+                "button": "Lang",
+                "list": ["РУ", "EN"]
+            },
+            "login": {
+                "signin": "Вход",
+                "signup": "Регистрация"
+            }
+        }
+
+    },
+    "content": {
+        "mainText": "Добрый день, авторизуйтесь для получения доступа к контенту сайта."
     }
 }

@@ -1,6 +1,43 @@
 {
     "logoName": "Nevvord",
     "navBar": {
-        "firstLink": "Link"
+        "left": {
+            "firstLink": "Link"
+        },
+        "right": {
+            "search": {
+                "input": "Search",
+                "button": "Search"
+            },
+            "lang": {
+                "button": "Lang",
+                "list": ["РУ", "EN"]
+            },
+            "login": {
+                "signin": "Sign In",
+                "signup": "Sign Up",
+                "modal": {
+                    "email": {
+                        "label": "Email adress",
+                        "placeholder": "Enter email",
+                        "description": "We'll never share your email with anyone else."
+                    },
+                    "password": {
+                        "label": "Password",
+                        "placeholder": "Password",
+                        "button": "Show"
+                    },
+                    "buttons": {
+                        "signin": "Sign In",
+                        "close": "Close",
+                        "rememberPassword": "Remember password"
+                    }
+                }
+            }
+        }
+
+    },
+    "content": {
+        "mainText": "Hello, log in to access the site content."
     }
 }
