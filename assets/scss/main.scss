@@ -1,5 +1,20 @@
 @import 'variables';
 
+//===== Link =====
+.n-link-gray   {
+    font-family: $font-link;
+    color: $font-color;
+}
+
+.page-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: $color-light;
+    border-bottom: 2px solid $color-light;
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
 .n-mr-r-sm    {
     margin-right: $mr-r-sm;
 }

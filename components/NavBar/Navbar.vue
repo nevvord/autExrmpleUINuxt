@@ -1,7 +1,7 @@
 <template>
     <div>
-        <b-navbar toggleable="lg" type="light" variant="white">
-            <b-navbar-brand to="#">
+        <b-navbar toggleable="lg" type="dark" variant="dark">
+            <b-navbar-brand to="/">
                 {{ $t('logoName') }}
             </b-navbar-brand>
 

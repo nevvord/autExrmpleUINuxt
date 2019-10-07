@@ -15,7 +15,24 @@
             },
             "login": {
                 "signin": "Вход",
-                "signup": "Регистрация"
+                "signup": "Регистрация",
+                "modal": {
+                    "email": {
+                        "label": "Почтовый адресс",
+                        "placeholder": "Введите электронную почту",
+                        "description": "Не давайте свою электронную почту другим."
+                    },
+                    "password": {
+                        "label": "Пароль",
+                        "placeholder": "Пароль",
+                        "button": "Показать"
+                    },
+                    "buttons": {
+                        "signin": "Вход",
+                        "close": "Закрыть",
+                        "rememberPassword": "Напомнить пароль"
+                    }
+                }
             }
         }
 
