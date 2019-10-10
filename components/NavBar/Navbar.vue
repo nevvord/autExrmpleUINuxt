@@ -9,14 +9,14 @@
 
             <b-collapse id="nav-colapse" is-nav>
                 <b-navbar-nav>
-                    <b-nav-item to="#">{{ $t('navBar.left.firstLink') }}</b-nav-item>
+                    <b-nav-item to="/link">{{ $t('navBar.left.firstLink') }}</b-nav-item>
                 </b-navbar-nav>
 
                 
                 <!--Right navBar-->
                 <b-navbar-nav class="ml-auto">
                     <!--Search-->
-                    <Search />
+                    <!--<Search />-->
                     <!--User-->
                     <User />
                     <!--Lang-->

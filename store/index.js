@@ -1,8 +1,12 @@
 export const state = () => ({
-    data: 'data'
+    user: {}
+    
 })
 
 export const mutations = {
+    addUser (state, user) {
+        state.user.userName = user
+    }
 
 }
 

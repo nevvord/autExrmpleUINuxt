@@ -8,6 +8,9 @@
                 <b-col sm="12" lg="5">
                     <b-form-group id="signinEmailGroup" label="Email:" label-for="signinEmailInput">
                         <b-form-input id="signinEmailInput" name="signinEmailInput" v-model="$v.form.email.$model" :state="$v.form.email.$dirty ? !$v.form.email.$error : null" aria-describedby="signinEmailLiveFeedback" placeholder="user@gmail.com" type="email"></b-form-input>
+                        <b-form-invalid-feedback id="signinEmailLiveFeedback">
+                          Введите минимум 4 символа
+                        </b-form-invalid-feedback>
                     </b-form-group>
                 </b-col>
             </b-row>
@@ -17,6 +20,9 @@
                         <b-form-input id="sigininPasswordInput" name="sigininPasswordInput" v-model="$v.form.password.$model" :state=" $v.form.password.$dirty ? !$v.form.password.$error : null " aria-describedby="signinPasswordLiveFeedback"
                         placeholder="Password" type="password"
                         ></b-form-input>
+                        <b-form-invalid-feedback id="signinPasswordLiveFeedback">
+                          Введите минимум 6 символов
+                        </b-form-invalid-feedback>
                     </b-form-group>
                 </b-col>
             </b-row>
@@ -34,6 +40,7 @@
 import { validationMixin } from 'vuelidate'
 import { required, minLength } from 'vuelidate/lib/validators'
 import axios from "axios"
+import { mapMutations } from 'vuex'
 
 export default {
     head: {
@@ -52,7 +59,7 @@ export default {
       form: {
         email: {
           required,
-          minLength: minLength(3)
+          minLength: minLength(4)
         },
         password: {
             required,
@@ -60,6 +67,12 @@ export default {
         }
       }
     },
+    created() {
+      if (this.$store.state.auth.auth) {
+        this.$router.push('/')
+      }
+    }
+    ,
     methods: {
       onSubmit() {
         this.$v.form.$touch()
@@ -72,10 +85,14 @@ export default {
         axios
           .post('http://localhost:3377/user/login', this.form)
           .then(response => {
-            console.log(response.data);
+            console.log(response.data)
+            localStorage.setItem('auth', response.data.token)
+            this.$store.commit('auth/authChange')
+            this.$store.commit('addUser', response.data.user.userName)
+            this.$router.push('/')
           })
           .catch(err => {
-            console.log(err.response.data);
+            console.log(err.response.data)
           })
         
       }

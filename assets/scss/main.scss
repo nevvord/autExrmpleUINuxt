@@ -14,7 +14,7 @@
     padding: 5px;
     margin-bottom: 15px;
 }
-
+// ===== Margin =====
 .n-mr-r-sm    {
     margin-right: $mr-r-sm;
 }
@@ -24,6 +24,12 @@
 .n-mr-r-lg    {
     margin-right: $mr-r-lg;
 }
+
+.n-mr-top-ceneter {
+    margin-top: 49vh;
+}
+
+// ===== BG =====
 
 .n-bg-color-light {
     background-color: $bg-color-light;
@@ -43,4 +49,13 @@
 
 .n-padding-lg {
     padding: $padding-lg;
+}
+
+.n-padding-nun {
+    padding: 0px;
+}
+// ===== Img =====
+
+.n-small-userImage {
+    width: 28px;
 }
