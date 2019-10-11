@@ -66,6 +66,7 @@
 import { validationMixin } from 'vuelidate'
 import { required, sameAs, minLength, email } from 'vuelidate/lib/validators'
 import axios from "axios"
+import { mapGetters} from 'vuex'
 
 function checkInstance (status) {
   
@@ -89,6 +90,13 @@ export default {
             emailHtml: '',
             emailValidateStatus: 201
         }
+    },
+    created() {
+      
+      if (this.$store.getters['auth/getAuth']) {
+        this.$router.push('/')
+      }
+      
     },
     validations: {
       form: {

@@ -7,3 +7,9 @@ export const mutations = {
         state.auth = !state.auth
     }
 }
+
+export const getters = {
+    getAuth ( state ) {
+        return state.auth
+    }
+}

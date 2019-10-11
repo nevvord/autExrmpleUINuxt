@@ -43,6 +43,7 @@ import axios from "axios"
 import { mapMutations } from 'vuex'
 
 export default {
+  middleware: 'authen',
     head: {
         title: "Sign in"
     },
@@ -68,11 +69,12 @@ export default {
       }
     },
     created() {
+      
       if (this.$store.state.auth.auth) {
         this.$router.push('/')
       }
-    }
-    ,
+      
+    },
     methods: {
       onSubmit() {
         this.$v.form.$touch()
@@ -89,10 +91,22 @@ export default {
             localStorage.setItem('auth', response.data.token)
             this.$store.commit('auth/authChange')
             this.$store.commit('addUser', response.data.user.userName)
+            this.$notify({
+              group: 'foo',
+              title: 'Login',
+              text: `Success. Welcome ${response.data.user.userName}`,
+              type: 'success' 
+            })
             this.$router.push('/')
           })
           .catch(err => {
             console.log(err.response.data)
+            this.$notify({
+              group: 'foo',
+              title: 'ERROR',
+              text: err.response.data,
+              type: 'error'
+            })
           })
         
       }

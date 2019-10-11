@@ -34,7 +34,12 @@ export default {
                     console.log(res.data)
                     localStorage.removeItem('auth')
                     this.$store.commit('auth/authChange')
-
+                    this.$notify({
+                        group: "foo",
+                        title: "Logout",
+                        text: "Success",
+                        type: "info"
+                    })
                 })
                 .catch(err => {
                     

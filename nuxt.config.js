@@ -30,7 +30,8 @@ module.exports = {
   */
   plugins: [
     //Multiple Lang: https://dev.to/christopherkade/adding-internationalization-to-your-nuxt-js-applications-39jd
-    "~/plugins/i18n.js"
+    "~/plugins/i18n.js",
+    {src: '~/plugins/vue-notification.js', ssr: false}
   ],
   /*
   ** Nuxt.js dev-modules
@@ -42,7 +43,7 @@ module.exports = {
   */
   modules: [
     // Doc: https://bootstrap-vue.js.org
-    'bootstrap-vue/nuxt'
+    'bootstrap-vue/nuxt',
   ],
   /*
   ** Build configuration

@@ -1,13 +1,16 @@
 <template>
-    <div class="bg-light" v-if="!loading">
-        <NavBar/>
-        <b-container>
-            <nuxt />
-        </b-container>
-        <Massage />
-    </div>
-    <div class="text-center n-mr-top-ceneter" v-else>
-        <b-spinner label="Spinning"></b-spinner>
+    <div>
+        <div class="bg-light" v-if="!loading">
+            <NavBar/>
+            <b-container>
+                <nuxt />
+            </b-container>
+            <Massage />
+        </div>
+        <div class="text-center n-mr-top-ceneter" v-else>
+            <b-spinner label="Spinning"></b-spinner>
+        </div>
+        <notifications group="foo" position="bottom right" />
     </div>
 </template>
 
@@ -38,6 +41,7 @@ export default {
                     if (res.data.auth === true) {
                         console.log("RES: ", res.data)
                         this.$store.commit('auth/authChange')
+                        this.$store.commit('addUser', res.data.userName)
                         this.loading = false
                     }
                 })
@@ -51,6 +55,7 @@ export default {
                             
                                 localStorage.clear('auth')
                                 localStorage.setItem('auth', err.response.data.token )
+                                this.$store.commit('addUser', err.response.data.userName)
                                 this.$store.commit('auth/authChange')
                                 this.loading = false
                                 break
@@ -74,6 +79,6 @@ export default {
             console.log("ERR: 404 Token not found")
             this.loading = false
         }
-    }  
+    }
 }
 </script>
