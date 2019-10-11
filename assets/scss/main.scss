@@ -1,4 +1,16 @@
 @import 'variables';
+// ===== Default =====
+li{
+    list-style: none;
+}
+
+
+
+// ===== Border =====
+
+.n-border-right {
+    border-right: 2px solid rgb(206, 206, 206);
+}
 
 //===== Link =====
 .n-link-gray   {

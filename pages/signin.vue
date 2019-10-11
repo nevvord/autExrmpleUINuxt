@@ -44,72 +44,79 @@ import { mapMutations } from 'vuex'
 
 export default {
   middleware: 'authen',
-    head: {
-        title: "Sign in"
-    },
-    mixins: [validationMixin],
-    data() {
-        return {
-            form: {
-              email: null,
-              password: null
-            }
-        }
-    },
-    validations: {
+  head: {
+    title: "Sign in"
+  },
+  mixins: [validationMixin],
+  data() {
+    return {
       form: {
-        email: {
-          required,
-          minLength: minLength(4)
-        },
-        password: {
-            required,
-            minLength: minLength(6)
-        }
-      }
-    },
-    created() {
-      
-      if (this.$store.state.auth.auth) {
-        this.$router.push('/')
-      }
-      
-    },
-    methods: {
-      onSubmit() {
-        this.$v.form.$touch()
-        if (this.$v.form.$anyError) {
-          return
-        }
-
-        // Form submit logic
-        
-        axios
-          .post('http://localhost:3377/user/login', this.form)
-          .then(response => {
-            console.log(response.data)
-            localStorage.setItem('auth', response.data.token)
-            this.$store.commit('auth/authChange')
-            this.$store.commit('addUser', response.data.user.userName)
-            this.$notify({
-              group: 'foo',
-              title: 'Login',
-              text: `Success. Welcome ${response.data.user.userName}`,
-              type: 'success' 
-            })
-            this.$router.push('/')
-          })
-          .catch(err => {
-            console.log(err.response.data)
-            this.$notify({
-              group: 'foo',
-              title: 'ERROR',
-              text: err.response.data,
-              type: 'error'
-            })
-          })
-        
+        email: null,
+        password: null
       }
     }
+  },
+  validations: {
+    form: {
+      email: {
+        required,
+        minLength: minLength(4)
+      },
+      password: {
+        required,
+        minLength: minLength(6)
+      }
+    }
+  },
+  created() {
+
+    if (this.$store.state.auth.auth) {
+      this.$router.push('/')
+    }
+
+  },
+  methods: {
+    onSubmit() {
+      this.$v.form.$touch()
+      if (this.$v.form.$anyError) {
+        return
+      }
+
+      // Form submit logic
+
+      axios
+        .post('http://localhost:3377/user/login', this.form)
+        .then(response => {
+          console.log(response.data)
+          localStorage.setItem('auth', response.data.token)
+          this.$store.commit('auth/authChange')
+          const user = {
+            userName: response.data.user.userName,
+            email: response.data.user.email,
+            id: response.data.user._id
+          }
+          console.log(user);
+          
+          this.$store.commit('addUser', user)
+          this.$notify({
+            group: 'foo',
+            title: 'Login',
+            text: `Success. Welcome ${response.data.user.userName}`,
+            type: 'success'
+          })
+          this.$router.push('/')
+        })
+        .catch(err => {
+          console.log(err.response.data)
+          this.$notify({
+            group: 'foo',
+            title: 'ERROR',
+            text: err.response.data,
+            type: 'error'
+          })
+        })
+
+    }
   }
+}
 </script>

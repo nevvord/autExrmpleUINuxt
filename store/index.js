@@ -5,13 +5,12 @@ export const state = () => ({
 
 export const mutations = {
     addUser (state, user) {
-        state.user.userName = user
+        state.user = user
     }
-
 }
 
 export const getterers = {
-    user( state ) {
+    getUser( state ) {
         return state.user
     }
 }

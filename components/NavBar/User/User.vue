@@ -1,7 +1,9 @@
 <template>
     <div v-if="$store.state.auth.auth">
         <b-nav-item class="" >
-            <b-img id="imgUser" class="n-small-userImage n-mr-r-sm" src="~/assets/img/user.png"></b-img>
+            <n-link to="/profile">
+                <b-img id="imgUser" class="n-small-userImage n-mr-r-sm" src="~/assets/img/user.png"></b-img>
+            </n-link>
             <b-tooltip target="imgUser" placement="bottom" variant="">
                 {{$store.state.user.userName}}
             </b-tooltip>
@@ -34,6 +36,7 @@ export default {
                     console.log(res.data)
                     localStorage.removeItem('auth')
                     this.$store.commit('auth/authChange')
+                    this.$router.push('/')
                     this.$notify({
                         group: "foo",
                         title: "Logout",

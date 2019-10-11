@@ -1,10 +1,11 @@
 <template>
     <div>
         <div class="bg-light" v-if="!loading">
-            <NavBar/>
+            <NavBar />
             <b-container>
                 <nuxt />
             </b-container>
+            <Footer />
             <Massage />
         </div>
         <div class="text-center n-mr-top-ceneter" v-else>
@@ -16,6 +17,7 @@
 
 <script>
 import NavBar from '~/components/NavBar/Navbar'
+import Footer from '~/components/Footer/Footer'
 import Massage from '~/components/Administration/Massage/Massage'
 import { serverURL } from '../config/default.json'
 import Axios from 'axios'
@@ -23,7 +25,8 @@ import Axios from 'axios'
 export default {
     components: {
         NavBar,
-        Massage
+        Massage,
+        Footer
     },
     data() {
         return{
@@ -41,7 +44,7 @@ export default {
                     if (res.data.auth === true) {
                         console.log("RES: ", res.data)
                         this.$store.commit('auth/authChange')
-                        this.$store.commit('addUser', res.data.userName)
+                        this.$store.commit('addUser', res.data.user)
                         this.loading = false
                     }
                 })
