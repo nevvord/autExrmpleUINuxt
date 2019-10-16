@@ -58,7 +58,7 @@ export default {
                             
                                 localStorage.clear('auth')
                                 localStorage.setItem('auth', err.response.data.token )
-                                this.$store.commit('addUser', err.response.data.userName)
+                                this.$store.commit('addUser', err.response.data.user)
                                 this.$store.commit('auth/authChange')
                                 this.loading = false
                                 break

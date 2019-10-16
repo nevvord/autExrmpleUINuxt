@@ -15,8 +15,6 @@
         <br>
         <br>
         <div class="page-title "><strong>More info</strong></div>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit velit, officiis repellendus, consectetur at unde quas necessitatibus perferendis animi distinctio voluptates assumenda repellat adipisci nam? Eos nulla molestiae non consequuntur!</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, ducimus nobis? Iusto dolorem doloribus natus! Sequi suscipit fugit ex aliquam animi harum perferendis, ratione deleniti consectetur nisi, fuga modi quibusdam!</p>
     </div>
 </template>
 
